@@ -1,1 +1,0 @@
-print('Application exemple test 1')
