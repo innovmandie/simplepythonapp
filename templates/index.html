@@ -5,13 +5,28 @@
     <title>Simpleapp</title>
   
     <style>
-        html { font-family: sans-serif; background: #eee; padding: 1rem; }
-body { max-width: 960px; margin: 0 auto; background: rgb(87, 230, 163); }
-h1 { font-family: serif; color: #ffffff; margin: 1rem 0; }
+html { font-family: sans-serif; background: #ffffff; padding: 1rem; }
+h1 { font-family: serif; color: #0000000f; margin: 1rem 0; }
+body { background-color: white;}
 
     </style>
+    
 </head>
 <body>
-   <h1>Welcome to Simple apply flask innovmandie</h1>
+        <div style="background-color: #0facc1;">
+            <h2>Welcome to Simple apply flask innovmandie</h2>
+
+   </div>
+   <h4>Data from titanic csv load in flask app</h4>
+   <div class="table" width="900px">
+    <table class="table table-striped">
+        {% block body %}
+    {{ data|safe }}
+    {% endblock %}  
+    </table>
+    
+  </div>
+  
 </body>
+
 </html>
