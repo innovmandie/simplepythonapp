@@ -1,32 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr" data-fr-scheme="system">
 <head>
-    <meta charset="UTF-8">
-    <title>Simpleapp</title>
-  
-    <style>
-html { font-family: sans-serif; background: #ffffff; padding: 1rem; }
-h1 { font-family: serif; color: #0000000f; margin: 1rem 0; }
-body { background-color: white;}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Data site labinnov</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='dsfr/dsfr.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='utility/utility.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='utility/utility.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='utility/main.css') }}"/>
+     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    </style>
-    
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+     <style>
+        body { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+     </style>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="theme-color" content="#000091">
+
+
+<script>
+  window['dsfr'] = {
+    // verbose: true,
+    // production: true,
+    // mode: 'manual',
+  };
+</script>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" rel="stylesheet" />
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+<title>Titre de la page - Nom du site</title>
 </head>
 <body>
-        <div style="background-color: #0facc1;">
-            <h2>Welcome to Simple apply flask innovmandie</h2>
-
-   </div>
-   <h4>Data from titanic csv load in flask app</h4>
-   <div class="table" width="900px">
-    <table class="table table-striped">
-        {% block body %}
+    <div class="container-fluid">
+        <h1 style="margin-left: 60%">Application data</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Navbar</a>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+<!--      code de la page     -->
+<br>
+<div style = "margin-left: 100px">
+    <div style="background-color: #0facc1;">
+        <h2>Welcome to Simple apply flask innovmandie</h2>
+    
+    </div>
+    <h4>Data from titanic csv load in flask app</h4>
+    <div class="table" width="900px">
+    {% block body %}
     {{ data|safe }}
     {% endblock %}  
-    </table>
-    
-  </div>
-  
-</body>
+    </div>
+    <h6>Test intégration d'éléments</h6>
+        <ul class="fr-btns-group">
+            <li>
+                <button class="fr-btn" style="width : 140px">
+                    Label bouton
+                </button>
+            </li>
+        </ul>
+</div>
 
+
+
+<!-- Scripts design etat-->
+<script type="module" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='./dist/core/core.module.js') }}"></script>
+
+<script type="module" src="{{ url_for('static', filename='./dist/scheme/scheme.module.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='./dist/component/accordion/accordion.module.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='./dist/component/navigation/navigation.module.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='./dist/component/header/header.module.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='./dist/component/breadcrumb/breadcrumb.module.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='./dist/component/display/display.module.js') }}"></script>
+
+
+<script type="module" src="{{ url_for('static', filename='./dist/component/header/header.module.js') }}"></script>
+<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/core/core.nomodule.js') }}"></script>
+<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/legacy/legacy.nomodule.js') }}"></script>
+<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/core/core.nomodule.js') }}"></script>
+<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/component/modal/modal.nomodule.js') }}"></script>
+<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/component/display/display.nomodule.js') }}"></script>
+<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/component/header/header.nomodule.js') }}"></script>
+
+
+
+ <!-- Bootstrap core JS-->
+ <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</body>
 </html>
