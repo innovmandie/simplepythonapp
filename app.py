@@ -21,7 +21,7 @@ def index():
     class_info = dataset.groupby('embarked')['embarked'].value_counts()
     class_info = class_info.to_frame()
     percent_genre = round(dataset.groupby('sex')['sex'].value_counts() / len(dataset)  * 100, 2)
-    percent_genre =  percent_genre.astype(str) + ' %' 
+    percent_genre =  percent_genre.astype(str) + ' %'   
     percent_genre = percent_genre.to_frame()
 
     dataset['survived_categories'] = dataset['survived'].replace([0, 1], ['not survived', 'survived'])
