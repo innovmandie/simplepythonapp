@@ -20,6 +20,7 @@
 
      <style>
         body { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        
      </style>
 
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,55 +41,54 @@
 <body>
     <div class="container-fluid">
         <h1 style="margin-left: 60%">Application data</h1>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Navbar</a>
-      
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+   
+    
 <!--      code de la page     -->
 <br>
-<div style = "margin-left: 100px">
+<div class="container-fluid" style = "margin-left: 70px">
     <div style="background-color: #0facc1;">
         <h2>Welcome to Simple apply flask innovmandie</h2>
     
     </div>
+    <br>
     <h4>Data from titanic csv load in flask app</h4>
-    <div class="table" width="900px">
-    {% block body %}
-    {{ data|safe }}
-    {% endblock %}  
+    <div class="table-info table-bordered" width="900px">
+        {{ data|safe }}
+  
     </div>
-    <h6>Test intégration d'éléments</h6>
-        <ul class="fr-btns-group">
-            <li>
-                <button class="fr-btn" style="width : 140px">
-                    Label bouton
-                </button>
-            </li>
-        </ul>
+    <br>
+      <h4>Columns name</h4>
+      {%for i in data_columns %} 
+      <p>{{ i }}</p>
+      {%endfor%} 
+<br>
+<div class="row">
+  <div class="col">
+    <div class="card" style=' width: 250px; height: 150px; border: 1px solid; 
+    border-color:black; border-radius: 5px 5px 5px 5px;   
+    background-color: #343434; color:white'>
+      <div class="card-body">
+        <h5 class="card-title">Data shape</h5>
+        <h4 class="card-subtitle mb-2 text-muted">{{ info_shape }}</h4>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Data class embarked</h5>
+    
+        <h4>{{ class_info }}</h4>
+    
+      </div>
+    </div>
+  </div>
 </div>
 
+</div>
 
+</div>
 
 <!-- Scripts design etat-->
 <script type="module" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
