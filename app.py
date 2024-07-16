@@ -23,8 +23,13 @@ def index():
     percent_genre = round(dataset.groupby('sex')['sex'].value_counts() / len(dataset)  * 100, 2)
     percent_genre =  percent_genre.astype(str) + ' %' 
     percent_genre = percent_genre.to_frame()
+
+    dataset['survived_categories'] = dataset['survived'].replace([0, 1], ['not survived', 'survived'])
+    percent_survived = round(dataset.groupby('survived_categories')['survived_categories'].value_counts() / len(dataset)  * 100, 2)
+    percent_survived =  percent_survived.astype(str) + ' %' 
+    percent_survived = percent_survived.to_frame()
     
-    return render_template('index.html', data=data, info_shape=info_shape, data_columns=data_columns, class_info=class_info, percent_genre=percent_genre)
+    return render_template('index.html', data=data, info_shape=info_shape, data_columns=data_columns, class_info=class_info, percent_genre=percent_genre, percent_survived=percent_survived)
  
 if __name__ == "__main__":
     app.run()
