@@ -1,151 +1,94 @@
-<!doctype html>
-<html lang="fr" data-fr-scheme="system">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Data site labinnov</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='dsfr/dsfr.min.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='utility/utility.min.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='utility/utility.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='utility/main.css') }}"/>
-     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-     <style>
-        body { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
-        
-     </style>
-
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- <meta name="theme-color" content="#000091">
-
-
-<script>
-  window['dsfr'] = {
-    // verbose: true,
-    // production: true,
-    // mode: 'manual',
-  };
-</script>
- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" rel="stylesheet" />
- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
-<title>Titre de la page - Nom du site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+<!-- Web etat start -->
+    <meta charset="utf-8"><meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/dsfr/dsfr.min.css">
+<link rel="stylesheet" href="/static/utility/utility.css">
+<meta name="theme-color" content="#000091">
+<!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
+<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+<link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+<link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
+<!-- Web etat end-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
     <div class="container-fluid">
-        <h1 style="margin-left: 60%">Application data</h1>
+        <h1 style="margin-left: 60%">Simple Upload file</h1>
+    </div>
    
-    
 <!--      code de la page     -->
-<br>
-<div class="container-fluid" style = "margin-left: 70px;">
-    
-        <h2>Welcome to Simple apply flask innovmandie</h2>
-    <br>
-    <div class="row">
-      <div class="col">
-        <div class="card text-center" style= "background-color: #b4f6ff; ">
-          <div class="card-body" style="box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23)">
-            <h4>Data from titanic csv load in flask app</h4>
-            <div class="table table-bordered text-center" width="800px" style="background-color: rgb(255, 237, 170);border-collapse: collapse;border-color: red #f015ca;">
-              <table class="table table-responsive">
-                {{ data|safe }}
-                </table>
-               
-          
+
+<header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <a href="/" title="Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+                                <p class="fr-logo">
+                                    Préfecture
+                                    <br>Normandie
+                                    <br>SGAR
+                                </p>
+                            </a>
+                        </div>
+                        <div class="fr-header__navbar">
+                            <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-491" aria-haspopup="menu" id="button-492" title="Menu">
+                                Menu
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        
-      </div>
-      </div>
-    
-    <br>
-<div class="row">
+    </div>
+    <div class="fr-header__menu fr-modal" id="modal-491" aria-labelledby="button-492">
+        <div class="fr-container">
+            <div class="fr-header__menu-links">
+            </div>
+            <nav class="fr-nav" id="collapse-5538" role="navigation" aria-label="Menu principal">
+                <ul class="fr-nav__list">
+                    <li class="fr-nav__item">
+                        <li><button class="fr-nav__btn" aria-expanded="false" aria-controls="collapse-5587" aria-current="true">Accueil</button></li>
+                        <a class="fr-nav__link" href="#" target="_self" id="nav-5542">Niveau 1</a>
+                    </li>
+                    <li class="fr-nav__item">
+                        <a class="fr-nav__link" href="#" target="_self" id="nav-5542">Niveau 2</a>
+                    </li>
+                    <li class="fr-nav__item">
+                        <a class="fr-nav__link" href="#" target="_self">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
 <br>
-  <div class="col">
-    <div class="card" style="width: 24rem; box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23)">
-      <div class="card-body" style="background-color: aqua;">
-        <h5 class="card-title">Data shape</h5>
-        <h4 class="card-subtitle mb-2">{{ info_shape }}</h4>
-      </div>
+    <div class="container mt-5">
+        <h1>Upload a CSV File</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Choose file</label>
+                <input class="form-control" type="file" id="formFile" name="file">
+            </div>
+            <button type="submit" class="fr-btn">
+                Upload
+            </button>
+            
+        </form>
     </div>
-    <br>
-    
-  </div>
-  <div class="col">
-    <div class="card" style="width: 30rem; background-color: aquamarine;  box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23)" >
-      <div class="card-body">
-        <h5 class="card-title">Genre people</h5>
-        <h4>{{ percent_genre }}</h4>
-      </div>
-    </div>
-    <br>
-  </div>
-  <div class="col">
-    <div class="card" style="width: 18rem; box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23)">
-      <div class="card-body" style="background-color: pink;">
-        <h5 class="card-title">Data class embarked</h5> 
-        <h4>{{ class_info }}</h4>
-      </div>
-    </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <br>
-    <div class="col">
-      <div class="card" style="width: 24rem; box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23)">
-        <div class="card-body" style="background-color: aqua;">
-          <h5 class="card-title">SURVIVED</h5>
-          <h4 class="card-subtitle mb-2">{{ percent_survived }}</h4>
-        </div>
-      </div>
-      <br>
 
-</div>
-  </div>
-  
-
-</div>
-
-<!-- Scripts design etat-->
-<script type="module" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-<script type="module" src="{{ url_for('static', filename='./dist/core/core.module.js') }}"></script>
-
-<script type="module" src="{{ url_for('static', filename='./dist/scheme/scheme.module.js') }}"></script>
-<script type="module" src="{{ url_for('static', filename='./dist/component/accordion/accordion.module.js') }}"></script>
-<script type="module" src="{{ url_for('static', filename='./dist/component/navigation/navigation.module.js') }}"></script>
-<script type="module" src="{{ url_for('static', filename='./dist/component/header/header.module.js') }}"></script>
-<script type="module" src="{{ url_for('static', filename='./dist/component/breadcrumb/breadcrumb.module.js') }}"></script>
-<script type="module" src="{{ url_for('static', filename='./dist/component/display/display.module.js') }}"></script>
-
-
-<script type="module" src="{{ url_for('static', filename='./dist/component/header/header.module.js') }}"></script>
-<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/core/core.nomodule.js') }}"></script>
-<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/legacy/legacy.nomodule.js') }}"></script>
-<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/core/core.nomodule.js') }}"></script>
-<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/component/modal/modal.nomodule.js') }}"></script>
-<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/component/display/display.nomodule.js') }}"></script>
-<script type="text/javascript" nomodule src="{{ url_for('static', filename='./dist/component/header/header.nomodule.js') }}"></script>
-
-
-
- <!-- Bootstrap core JS-->
- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
+<script type="module" src="dsfr/dsfr.module.min.js"></script>
+<script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
 </body>
 </html>

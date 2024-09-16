@@ -1,35 +1,63 @@
-from flask import Flask, render_template
-import tablib
-import os
-from flask_bootstrap import Bootstrap4
-from flask import Flask
-
+from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
+import os
 
-app = Flask (__name__)
-bootstrap = Bootstrap4(app)
-dataset = pd.read_csv('titanic3.csv')
+app = Flask(__name__, static_url_path='/static')
+app.config['UPLOAD_FOLDER'] = 'uploads'
 
- 
-@app.route("/")
+# Ensure the upload folder exists
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+    os.makedirs(app.config['UPLOAD_FOLDER'])
+
+# Store the uploaded file path and dataframe globally
+uploaded_file_path = None
+uploaded_df = None
+
+@app.route('/')
 def index():
-    data = dataset.head(n=7)
-    data = data.to_html()
-    #return dataset.html
-    info_shape = dataset.shape
-    data_columns = dataset.columns
-    class_info = dataset.groupby('embarked')['embarked'].value_counts()
-    class_info = class_info.to_frame()
-    percent_genre = round(dataset.groupby('sex')['sex'].value_counts() / len(dataset)  * 100, 2)
-    percent_genre =  percent_genre.astype(str) + ' %'   
-    percent_genre = percent_genre.to_frame()
+    return render_template('index.html')
 
-    dataset['survived_categories'] = dataset['survived'].replace([0, 1], ['not survived', 'survived'])
-    percent_survived = round(dataset.groupby('survived_categories')['survived_categories'].value_counts() / len(dataset)  * 100, 2)
-    percent_survived =  percent_survived.astype(str) + ' %' 
-    percent_survived = percent_survived.to_frame()
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    global uploaded_file_path, uploaded_df
     
-    return render_template('index.html', data=data, info_shape=info_shape, data_columns=data_columns, class_info=class_info, percent_genre=percent_genre, percent_survived=percent_survived)
- 
-if __name__ == "__main__":
-    app.run()
+    if 'file' not in request.files:
+        return redirect(url_for('index'))
+
+    file = request.files['file']
+    
+    if file.filename == '':
+        return redirect(url_for('index'))
+
+    # Save the file
+    uploaded_file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    file.save(uploaded_file_path)
+
+    # Read the file using pandas
+    uploaded_df = pd.read_csv(uploaded_file_path)
+
+    # Pass the column names to the template for column selection
+    columns = uploaded_df.columns.tolist()
+    
+    return render_template('choose_columns.html', columns=columns)
+
+@app.route('/view_data', methods=['POST'])
+def view_data():
+    global uploaded_df
+
+    # Get selected columns from the form
+    selected_columns = request.form.getlist('columns')
+
+    # Filter the DataFrame based on selected columns
+    if selected_columns:
+        filtered_df = uploaded_df[selected_columns]
+    else:
+        filtered_df = uploaded_df  # Default to show all columns if none selected
+
+    # Convert the filtered DataFrame to HTML for rendering
+    table_html = filtered_df.head().to_html(classes='table table-striped')
+
+    return render_template('view_data.html', table=table_html)
+
+if __name__ == '__main__':
+    app.run(debug=True)
